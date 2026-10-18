@@ -1,0 +1,42 @@
+# ─────────────────────────────────────────────
+# rules.yaml  –  Decision Engine thresholds
+# All values are EDITABLE.  Change here, not in code.
+# ─────────────────────────────────────────────
+
+weather:
+  # Top-dress N should be delayed if forecast rain in next 3 days exceeds this value
+  topdress_delay_rain_mm: 40.0
+  # Warn if max temperature in next 3 days exceeds (heat stress during fertilization)
+  heat_stress_tmax_c: 38.0
+  # Warn if soil is already very wet (Soil_Moisture_Percent)
+  wet_soil_moisture_pct: 80.0
+
+yield:
+  # Warn if target yield > X * previous yield  (unrealistic ambition)
+  ambition_ratio: 1.30
+  # Minimum target yield allowed (prevents formula giving huge doses on 0-yield input)
+  min_target_yield_t_ha: 0.5
+  # Maximum target yield allowed per crop (absolute cap – override per-crop if needed)
+  max_target_yield_t_ha: 80.0  # sugarcane ratoon can exceed 100 t – set crop-level cap
+
+confidence:
+  # If fewer than this many data points exist for a crop × growth_stage combo in the dataset,
+  # lower confidence to "low" for the health proxy
+  health_proxy_min_samples: 30
+
+ml:
+  # If ML label is completely different from formula dominant nutrient AND confidence >= this,
+  # add a cross-check warning and lower overall confidence
+  disagree_confidence_drop: true
+  disagree_note: "ML cross-check disagrees with formula dominant nutrient. Verify soil test."
+
+output:
+  # Bags are always rounded UP (ceiling)
+  bag_rounding: ceil
+  # NPK ratio denominator: smallest positive dose
+  ratio_base: min_positive
+
+application:
+  # Buffer percentage: farmer recommended dose = formula dose * (1 + buffer)
+  # Set to 0.0 to match formula exactly
+  safety_buffer_pct: 0.0

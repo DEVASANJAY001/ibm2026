@@ -1,0 +1,27 @@
+{
+  "urea": {
+    "N_pct": 46, "P2O5_pct": 0,  "K2O_pct": 0,
+    "bag_kg": 50, "price_per_bag_inr": 266,
+    "note": "Government MRP as of 2024"
+  },
+  "dap": {
+    "N_pct": 18, "P2O5_pct": 46, "K2O_pct": 0,
+    "bag_kg": 50, "price_per_bag_inr": 1350,
+    "note": "Di-ammonium phosphate"
+  },
+  "mop": {
+    "N_pct": 0,  "P2O5_pct": 0,  "K2O_pct": 60,
+    "bag_kg": 50, "price_per_bag_inr": 900,
+    "note": "Muriate of Potash"
+  },
+  "ssp": {
+    "N_pct": 0,  "P2O5_pct": 16, "K2O_pct": 0,
+    "bag_kg": 50, "price_per_bag_inr": 380,
+    "note": "Single Super Phosphate - also supplies 12% S and 21% Ca"
+  },
+  "npk_10_26_26": {
+    "N_pct": 10, "P2O5_pct": 26, "K2O_pct": 26,
+    "bag_kg": 50, "price_per_bag_inr": 1550,
+    "note": "Complex NPK used in sugarcane/vegetable basal"
+  }
+}

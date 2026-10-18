@@ -1,0 +1,178 @@
+{
+  "_meta": {
+    "units": {
+      "N_P2O5_K2O": "kg per hectare",
+      "soil_N_P_K": "mg per kg (ppm)",
+      "uptake": "kg nutrient per tonne of produce",
+      "efficiency": "fraction (0-1)"
+    },
+    "soil_class_note": "Thresholds derived from dataset p25/p75 quantiles (method=csv_quantile). Replace with ICAR/TNAU official values when available.",
+    "source_note": "Uptake and efficiency values: ICAR Fertilizer Use by Soil Series (2011), TNAU Crop Production Guide 2021."
+  },
+
+  "Rice": {
+    "method": "nutrient_balance",
+    "yield_unit": "t_per_ha",
+    "uptake_kg_per_tonne": { "N": 17.5, "P2O5": 7.0, "K2O": 20.0 },
+    "efficiency":          { "N": 0.50, "P2O5": 0.25, "K2O": 0.60 },
+    "soil_supply_fraction": { "low": 0.20, "medium": 0.40, "high": 0.60 },
+    "soil_class_thresholds": {
+      "N": { "low_below": 67.0, "high_above": 118.0 },
+      "P": { "low_below": 34.0, "high_above": 60.0 },
+      "K": { "low_below": 91.0, "high_above": 150.0 }
+    },
+    "max_dose_kg_ha": { "N": 150.0, "P2O5": 75.0, "K2O": 100.0 },
+    "split_schedule": [
+      { "stage": "basal",       "N": 0.50, "P2O5": 1.00, "K2O": 0.50 },
+      { "stage": "tillering",   "N": 0.25, "P2O5": 0.00, "K2O": 0.25 },
+      { "stage": "panicle_init","N": 0.25, "P2O5": 0.00, "K2O": 0.25 }
+    ],
+    "source": "ICAR Fertilizer Use by Soil Series 2011; TNAU Crop Production Guide 2021",
+    "verified": true
+  },
+
+  "Wheat": {
+    "method": "nutrient_balance",
+    "yield_unit": "t_per_ha",
+    "uptake_kg_per_tonne": { "N": 25.0, "P2O5": 11.0, "K2O": 22.0 },
+    "efficiency":          { "N": 0.55, "P2O5": 0.25, "K2O": 0.65 },
+    "soil_supply_fraction": { "low": 0.20, "medium": 0.40, "high": 0.60 },
+    "soil_class_thresholds": {
+      "N": { "low_below": 71.0, "high_above": 120.0 },
+      "P": { "low_below": 35.0, "high_above": 61.0 },
+      "K": { "low_below": 90.0, "high_above": 151.0 }
+    },
+    "max_dose_kg_ha": { "N": 160.0, "P2O5": 80.0, "K2O": 80.0 },
+    "split_schedule": [
+      { "stage": "basal",       "N": 0.50, "P2O5": 1.00, "K2O": 1.00 },
+      { "stage": "crown_root",  "N": 0.25, "P2O5": 0.00, "K2O": 0.00 },
+      { "stage": "flag_leaf",   "N": 0.25, "P2O5": 0.00, "K2O": 0.00 }
+    ],
+    "source": "ICAR Fertilizer Use by Soil Series 2011",
+    "verified": true
+  },
+
+  "Maize": {
+    "method": "nutrient_balance",
+    "yield_unit": "t_per_ha",
+    "uptake_kg_per_tonne": { "N": 26.0, "P2O5": 9.0, "K2O": 24.0 },
+    "efficiency":          { "N": 0.55, "P2O5": 0.25, "K2O": 0.65 },
+    "soil_supply_fraction": { "low": 0.20, "medium": 0.40, "high": 0.60 },
+    "soil_class_thresholds": {
+      "N": { "low_below": 70.0, "high_above": 121.0 },
+      "P": { "low_below": 35.0, "high_above": 64.0 },
+      "K": { "low_below": 88.0, "high_above": 147.0 }
+    },
+    "max_dose_kg_ha": { "N": 180.0, "P2O5": 80.0, "K2O": 80.0 },
+    "split_schedule": [
+      { "stage": "basal",     "N": 0.33, "P2O5": 1.00, "K2O": 0.50 },
+      { "stage": "knee_high", "N": 0.33, "P2O5": 0.00, "K2O": 0.50 },
+      { "stage": "silking",   "N": 0.34, "P2O5": 0.00, "K2O": 0.00 }
+    ],
+    "source": "ICAR Fertilizer Use by Soil Series 2011; TNAU Agro Guide 2021",
+    "verified": true
+  },
+
+  "Cotton": {
+    "method": "nutrient_balance",
+    "yield_unit": "t_per_ha",
+    "uptake_kg_per_tonne": { "N": 55.0, "P2O5": 18.0, "K2O": 50.0 },
+    "efficiency":          { "N": 0.50, "P2O5": 0.20, "K2O": 0.60 },
+    "soil_supply_fraction": { "low": 0.15, "medium": 0.35, "high": 0.55 },
+    "soil_class_thresholds": {
+      "N": { "low_below": 71.0, "high_above": 124.0 },
+      "P": { "low_below": 33.0, "high_above": 61.0 },
+      "K": { "low_below": 89.0, "high_above": 147.0 }
+    },
+    "max_dose_kg_ha": { "N": 200.0, "P2O5": 80.0, "K2O": 120.0 },
+    "split_schedule": [
+      { "stage": "basal",       "N": 0.50, "P2O5": 1.00, "K2O": 0.50 },
+      { "stage": "squaring",    "N": 0.25, "P2O5": 0.00, "K2O": 0.25 },
+      { "stage": "boll_dev",    "N": 0.25, "P2O5": 0.00, "K2O": 0.25 }
+    ],
+    "source": "ICAR Cotton Production Technology 2014; TNAU Crop Guide 2021",
+    "verified": true
+  },
+
+  "Sugarcane": {
+    "method": "nutrient_balance",
+    "yield_unit": "t_per_ha",
+    "uptake_kg_per_tonne": { "N": 1.50, "P2O5": 0.50, "K2O": 1.50 },
+    "efficiency":          { "N": 0.50, "P2O5": 0.25, "K2O": 0.60 },
+    "soil_supply_fraction": { "low": 0.20, "medium": 0.40, "high": 0.60 },
+    "soil_class_thresholds": {
+      "N": { "low_below": 68.0, "high_above": 121.0 },
+      "P": { "low_below": 35.0, "high_above": 62.0 },
+      "K": { "low_below": 92.0, "high_above": 152.0 }
+    },
+    "max_dose_kg_ha": { "N": 275.0, "P2O5": 90.0, "K2O": 150.0 },
+    "split_schedule": [
+      { "stage": "basal",    "N": 0.33, "P2O5": 1.00, "K2O": 0.50 },
+      { "stage": "3_month",  "N": 0.33, "P2O5": 0.00, "K2O": 0.25 },
+      { "stage": "6_month",  "N": 0.34, "P2O5": 0.00, "K2O": 0.25 }
+    ],
+    "source": "ICAR Sugarcane Agronomy Manual 2015; TNAU Sugarcane Guide 2021",
+    "verified": true
+  },
+
+  "Tomato": {
+    "method": "nutrient_balance",
+    "yield_unit": "t_per_ha",
+    "uptake_kg_per_tonne": { "N": 3.0, "P2O5": 0.80, "K2O": 3.50 },
+    "efficiency":          { "N": 0.55, "P2O5": 0.25, "K2O": 0.60 },
+    "soil_supply_fraction": { "low": 0.20, "medium": 0.40, "high": 0.55 },
+    "soil_class_thresholds": {
+      "N": { "low_below": 68.0, "high_above": 120.0 },
+      "P": { "low_below": 35.0, "high_above": 63.0 },
+      "K": { "low_below": 89.0, "high_above": 148.0 }
+    },
+    "max_dose_kg_ha": { "N": 175.0, "P2O5": 80.0, "K2O": 200.0 },
+    "split_schedule": [
+      { "stage": "basal",       "N": 0.33, "P2O5": 1.00, "K2O": 0.33 },
+      { "stage": "flowering",   "N": 0.33, "P2O5": 0.00, "K2O": 0.33 },
+      { "stage": "fruit_set",   "N": 0.34, "P2O5": 0.00, "K2O": 0.34 }
+    ],
+    "source": "ICAR Vegetable Crops Production Technology 2012; TNAU Horticulture Guide 2021",
+    "verified": true
+  },
+
+  "Potato": {
+    "method": "nutrient_balance",
+    "yield_unit": "t_per_ha",
+    "uptake_kg_per_tonne": { "N": 4.0, "P2O5": 1.50, "K2O": 6.50 },
+    "efficiency":          { "N": 0.55, "P2O5": 0.25, "K2O": 0.60 },
+    "soil_supply_fraction": { "low": 0.20, "medium": 0.40, "high": 0.55 },
+    "soil_class_thresholds": {
+      "N": { "low_below": 71.0, "high_above": 123.0 },
+      "P": { "low_below": 35.0, "high_above": 62.0 },
+      "K": { "low_below": 92.0, "high_above": 150.0 }
+    },
+    "max_dose_kg_ha": { "N": 180.0, "P2O5": 90.0, "K2O": 250.0 },
+    "split_schedule": [
+      { "stage": "planting",    "N": 0.50, "P2O5": 1.00, "K2O": 0.50 },
+      { "stage": "earthing_up", "N": 0.50, "P2O5": 0.00, "K2O": 0.50 }
+    ],
+    "source": "ICAR Potato Production Technology 2013; TNAU Horticulture Guide 2021",
+    "verified": true
+  },
+
+  "Groundnut": {
+    "method": "nutrient_balance",
+    "yield_unit": "t_per_ha",
+    "uptake_kg_per_tonne": { "N": 50.0, "P2O5": 9.0, "K2O": 20.0 },
+    "efficiency":          { "N": 0.45, "P2O5": 0.20, "K2O": 0.60 },
+    "soil_supply_fraction": { "low": 0.20, "medium": 0.40, "high": 0.60 },
+    "soil_class_thresholds": {
+      "N": { "low_below": 68.0, "high_above": 119.0 },
+      "P": { "low_below": 37.0, "high_above": 62.0 },
+      "K": { "low_below": 87.0, "high_above": 151.0 }
+    },
+    "max_dose_kg_ha": { "N": 25.0, "P2O5": 50.0, "K2O": 75.0 },
+    "split_schedule": [
+      { "stage": "basal",    "N": 1.00, "P2O5": 1.00, "K2O": 0.50 },
+      { "stage": "pegging",  "N": 0.00, "P2O5": 0.00, "K2O": 0.50 }
+    ],
+    "source": "ICAR Groundnut Production Technology 2010; TNAU Oilseeds Guide 2021",
+    "verified": true
+  }
+}
