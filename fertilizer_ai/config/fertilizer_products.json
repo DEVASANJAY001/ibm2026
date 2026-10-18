@@ -1,27 +1,42 @@
 {
   "urea": {
-    "N_pct": 46, "P2O5_pct": 0,  "K2O_pct": 0,
-    "bag_kg": 50, "price_per_bag_inr": 266,
-    "note": "Government MRP as of 2024"
+    "N_pct": 46, "P2O5_pct": 0, "K2O_pct": 0,
+    "bag_kg": 45,
+    "price_min_inr": 260,
+    "price_max_inr": 285,
+    "price_per_bag_inr": 268,
+    "note": "Subsidized 45 kg bag. Retail rates vary by PACCS cooperative vs private retailers."
   },
   "dap": {
     "N_pct": 18, "P2O5_pct": 46, "K2O_pct": 0,
-    "bag_kg": 50, "price_per_bag_inr": 1350,
-    "note": "Di-ammonium phosphate"
+    "bag_kg": 50,
+    "price_min_inr": 1350,
+    "price_max_inr": 1450,
+    "price_per_bag_inr": 1350,
+    "note": "Di-ammonium phosphate (50 kg). Minor dealer transport margin differences apply."
   },
   "mop": {
-    "N_pct": 0,  "P2O5_pct": 0,  "K2O_pct": 60,
-    "bag_kg": 50, "price_per_bag_inr": 900,
-    "note": "Muriate of Potash"
+    "N_pct": 0, "P2O5_pct": 0, "K2O_pct": 60,
+    "bag_kg": 50,
+    "price_min_inr": 1650,
+    "price_max_inr": 1850,
+    "price_per_bag_inr": 1700,
+    "note": "Muriate of Potash (50 kg). Nutrient-Based Subsidy (NBS) retail pool."
   },
   "ssp": {
-    "N_pct": 0,  "P2O5_pct": 16, "K2O_pct": 0,
-    "bag_kg": 50, "price_per_bag_inr": 380,
-    "note": "Single Super Phosphate - also supplies 12% S and 21% Ca"
+    "N_pct": 0, "P2O5_pct": 16, "K2O_pct": 0,
+    "bag_kg": 50,
+    "price_min_inr": 450,
+    "price_max_inr": 550,
+    "price_per_bag_inr": 480,
+    "note": "Single Super Phosphate (50 kg). Also supplies 12% S and 21% Ca."
   },
   "npk_10_26_26": {
     "N_pct": 10, "P2O5_pct": 26, "K2O_pct": 26,
-    "bag_kg": 50, "price_per_bag_inr": 1550,
-    "note": "Complex NPK used in sugarcane/vegetable basal"
+    "bag_kg": 50,
+    "price_min_inr": 1450,
+    "price_max_inr": 1650,
+    "price_per_bag_inr": 1550,
+    "note": "Complex NPK used in sugarcane/vegetable basal."
   }
 }

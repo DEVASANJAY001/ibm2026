@@ -343,6 +343,9 @@ def recommend(
         # Products
         "products": fert_result["products"],
         "total_cost_inr": fert_result["total_cost_inr"],
+        "total_cost_min_inr": fert_result.get("total_cost_min_inr", fert_result["total_cost_inr"]),
+        "total_cost_max_inr": fert_result.get("total_cost_max_inr", fert_result["total_cost_inr"]),
+        "approx_total_cost_range_inr": fert_result.get("approx_total_cost_range_inr", f"₹{fert_result['total_cost_inr']:,}"),
 
         # Schedule
         "schedule": nutrient_result["schedule"],

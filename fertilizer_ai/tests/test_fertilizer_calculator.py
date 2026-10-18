@@ -68,3 +68,21 @@ def test_field_total_scales_with_area():
 def test_cost_is_non_negative():
     result = calc_products(80.0, 40.0, 60.0, area_ha=1.5)
     assert result["total_cost_inr"] >= 0
+
+
+def test_approximate_cost_ranges():
+    """Verify that products and totals provide price range bounds (₹X – ₹Y)."""
+    result = calc_products(100.0, 50.0, 60.0, area_ha=1.0)
+    assert "total_cost_min_inr" in result
+    assert "total_cost_max_inr" in result
+    assert "approx_total_cost_range_inr" in result
+    assert result["total_cost_min_inr"] <= result["total_cost_inr"] <= result["total_cost_max_inr"]
+    assert "–" in result["approx_total_cost_range_inr"]
+
+    for prod, data in result["products"].items():
+        assert "cost_min_inr" in data
+        assert "cost_max_inr" in data
+        assert "price_per_bag_range_inr" in data
+        assert "approx_cost_range_inr" in data
+        assert data["cost_min_inr"] <= data["cost_inr"] <= data["cost_max_inr"]
+

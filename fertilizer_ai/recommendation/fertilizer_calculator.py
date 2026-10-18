@@ -102,7 +102,9 @@ def calc_products(
     }
 
     products: Dict[str, Dict] = {}
-    total_cost = 0.0
+    total_cost_mid = 0.0
+    total_cost_min = 0.0
+    total_cost_max = 0.0
 
     for name, per_ha in product_map.items():
         if per_ha <= 0:
@@ -111,23 +113,48 @@ def calc_products(
         total_kg = per_ha * area_ha
         bag_size = prod["bag_kg"]
         n_bags = _bags(total_kg, bag_size)
-        cost = n_bags * prod.get("price_per_bag_inr", 0)
-        total_cost += cost
+
+        price_min = prod.get("price_min_inr", prod.get("price_per_bag_inr", 0))
+        price_max = prod.get("price_max_inr", prod.get("price_per_bag_inr", 0))
+        price_mid = prod.get("price_per_bag_inr", (price_min + price_max) // 2)
+
+        cost_min = n_bags * price_min
+        cost_max = n_bags * price_max
+        cost_mid = n_bags * price_mid
+
+        total_cost_min += cost_min
+        total_cost_max += cost_max
+        total_cost_mid += cost_mid
+
+        price_range_str = f"₹{price_min:,} – ₹{price_max:,}/bag" if price_min != price_max else f"₹{price_min:,}/bag"
+        cost_range_str = f"₹{cost_min:,} – ₹{cost_max:,}" if cost_min != cost_max else f"₹{cost_min:,}"
+
         products[name] = {
             "kg_per_ha": round(per_ha, 1),
             "total_kg": round(total_kg, 1),
             "bags": n_bags,
             "bag_kg": bag_size,
-            "cost_inr": cost,
+            "cost_inr": cost_mid,
+            "cost_min_inr": cost_min,
+            "cost_max_inr": cost_max,
+            "price_per_bag_inr": price_mid,
+            "price_per_bag_range_inr": price_range_str,
+            "approx_cost_range_inr": cost_range_str,
         }
         trace.append(
             f"{name}: {per_ha:.1f} kg/ha × {area_ha} ha = {total_kg:.1f} kg → "
-            f"{n_bags} bags × {bag_size} kg @ ₹{prod.get('price_per_bag_inr', 0)}/bag = ₹{cost}"
+            f"{n_bags} bags ({bag_size} kg) @ {price_range_str} = approx. {cost_range_str}"
         )
+
+    approx_total_str = f"₹{int(total_cost_min):,} – ₹{int(total_cost_max):,} INR" if total_cost_min != total_cost_max else f"₹{int(total_cost_mid):,} INR"
 
     return {
         "products": products,
-        "total_cost_inr": round(total_cost, 2),
+        "total_cost_inr": round(total_cost_mid, 2),
+        "total_cost_min_inr": round(total_cost_min, 2),
+        "total_cost_max_inr": round(total_cost_max, 2),
+        "approx_total_cost_range_inr": approx_total_str,
         "notes": notes,
         "trace": trace,
     }
+

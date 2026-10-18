@@ -85,6 +85,9 @@ class RecommendRequest(BaseModel):
 
     # --- Optional: include LLM advisory ---
     include_advisory: bool = Field(True)
+    advisory_lang: Optional[str] = Field("en", example="en", description="'en' for English or 'ta' for Tamil")
+    llm_provider: Optional[str] = Field(None, example="ollama", description="'ollama', 'groq', 'openai', or 'rule_based'")
+    ollama_model: Optional[str] = Field(None, example="qwen2.5:1.5b", description="Model name in Ollama")
 
 
 # Mount static assets
@@ -112,8 +115,16 @@ def health_check():
     return {
         "status": "ok",
         "service": "Precision Fertilizer Recommendation API v1.0",
-        "endpoints": ["/recommend", "/analyse-leaf", "/weather", "/geocode", "/crops"],
+        "endpoints": ["/recommend", "/analyse-leaf", "/weather", "/geocode", "/crops", "/api/llm-status"],
     }
+
+
+@app.get("/api/llm-status", tags=["LLM"])
+def llm_status():
+    """Return local LLM / Ollama connection status and available models."""
+    from llm.advisory_engine import check_llm_status
+    return check_llm_status()
+
 
 
 @app.get("/crops", tags=["Reference"])
@@ -201,7 +212,12 @@ def recommend_endpoint(req: RecommendRequest) -> Dict[str, Any]:
                 )
 
     if req.include_advisory:
-        result["advisory"] = generate_advisory(result)
+        result["advisory"] = generate_advisory(
+            result,
+            provider=req.llm_provider,
+            lang=req.advisory_lang,
+            ollama_model=req.ollama_model,
+        )
 
     return result
 
