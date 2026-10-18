@@ -192,7 +192,7 @@ pytest
 ## 👥 Authors & IBM Z Datathon 2026
 
 - **Deva Sanjay** ([@DEVASANJAY001](https://github.com/DEVASANJAY001))
-- **Nemaleshwar H** ([@Nemalesh](https://github.com/Nemalesh))
+- **Nemaleshwar H** ([@Nemaleshh](https://github.com/Nemalesh))
 - **Kamesh** ([@23002027](https://github.com/23002027))
 - **Thaanesh** ([@vthaanesh22](https://github.com/vthaanesh22))
 
