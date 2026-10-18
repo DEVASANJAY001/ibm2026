@@ -15,7 +15,7 @@
 
 ## 📌 Executive Quick Links
 - 🌐 **Project Repository**: [https://github.com/DEVASANJAY001/ibm2026](https://github.com/DEVASANJAY001/ibm2026)
-- 📓 **Interactive LinuxONE Notebook**: [`fertilizer/07_qwen_ollama_linuxone.ipynb`](fertilizer/07_qwen_ollama_linuxone.ipynb)
+- 📓 **Interactive LinuxONE Notebook**: [`fertilizer_ai/notebooks/07_qwen_ollama_linuxone.ipynb`](fertilizer_ai/notebooks/07_qwen_ollama_linuxone.ipynb)
 - 🎥 **Video Demo**: *(Add your 3-minute video link here)*
 - 📑 **Pitch Deck (PDF)**: *(Add your presentation PDF link here)*
 
