@@ -195,7 +195,7 @@ pytest
 - **Nemaleshwar H** ([@Nemaleshh](https://github.com/Nemalesh))
 - **Kamesh** ([@23002027](https://github.com/23002027))
 - **Thaanesh** ([@vthaanesh22](https://github.com/vthaanesh22))
-- **Thaanesh** ([@Sanjaykumar H](https://github.com/vthaanesh22))
+- **Sanjay Kumar H** ([@Sanjaykumar H](https://github.com/vthaanesh22))
 
 ---
 
